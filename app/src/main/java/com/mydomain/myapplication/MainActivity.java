@@ -3,10 +3,13 @@ package com.mydomain.myapplication;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-
+    EditText editText;
 
     private String msg = "Aplikacioni : therritet funksioni ";
 
@@ -16,9 +19,12 @@ public class MainActivity extends AppCompatActivity {
         Log.d(msg, "onCreate()");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        editText = findViewById(R.id.editText);
+    }
 
-        ImageView imageView = (ImageView) findViewById(R.id.imageView);
-        imageView.setImageResource(R.drawable.image);
+    public void lexoPasswordin(View view){
+       String vlera =  editText.getText().toString();
+        Toast.makeText(this,vlera,Toast.LENGTH_LONG).show();
     }
 
     @Override
