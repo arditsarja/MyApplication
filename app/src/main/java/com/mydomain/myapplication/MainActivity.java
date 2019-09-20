@@ -1,12 +1,22 @@
 package com.mydomain.myapplication;
 
+import android.Manifest;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     EditText editText;
@@ -19,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
         Log.d(msg, "onCreate()");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        checkPermission();
         editText = findViewById(R.id.editText);
     }
 
@@ -67,5 +78,39 @@ public class MainActivity extends AppCompatActivity {
         //Thirrja kur aktiviteti ristarton pasi ka ndaluar
         super.onRestart();
         Log.d(msg, "onRestart()");
+    }
+
+    public void startService(View view) {
+        startService(new Intent(getBaseContext(), MyService.class));
+    }
+
+    // Method to stop the service
+    public void stopService(View view) {
+        stopService(new Intent(getBaseContext(), MyService.class));
+    }
+
+    // broadcast a custom intent.
+
+    public void broadcastIntent(View view){
+        Intent intent = new Intent();
+        intent.setAction("com.mydomain.CUSTOM_INTENT"); sendBroadcast(intent);
+    }
+
+    private void checkPermission() {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
+            Log.e(msg, "This Android version does not support fingerprint authentication");
+            return;
+        }
+
+        List<IntentFilter> intentFilters = new ArrayList<>();
+        intentFilters.add(new IntentFilter(Intent.ACTION_POWER_CONNECTED));
+        intentFilters.add(new IntentFilter(Intent.ACTION_POWER_DISCONNECTED));
+        intentFilters.add(new IntentFilter(Intent.ACTION_BATTERY_LOW));
+        intentFilters.add(new IntentFilter(Intent.ACTION_BATTERY_OKAY));
+        intentFilters.add(new IntentFilter("com.mydomain.CUSTOM_INTENT"));
+        for (IntentFilter intentFilter : intentFilters) {
+            registerReceiver(new Receiver(), intentFilter);
+        }
+
     }
 }

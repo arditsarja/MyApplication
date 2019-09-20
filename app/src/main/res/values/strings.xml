@@ -2,5 +2,8 @@
     <string name="app_name">My Application</string>
     <string name="sayHello">Pershendetje Klasa</string>
     <string name="school">Kolin Gjoka</string>
+    <string name="broadcastIntent">Broadcast Intent</string>
+    <string name="activateService">Aktivizo Sherbimin</string>
+    <string name="deactivateService">Caktivizo Sherbimin</string>
 
 </resources>
