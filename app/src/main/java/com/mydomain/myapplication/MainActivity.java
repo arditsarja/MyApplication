@@ -96,6 +96,16 @@ public class MainActivity extends AppCompatActivity {
         intent.setAction("com.mydomain.CUSTOM_INTENT"); sendBroadcast(intent);
     }
 
+
+    public void ndiz(View view){
+        startService(new Intent(getBaseContext(),Sherbimi.class));
+    }
+
+
+    public void fik(View view){
+        stopService(new Intent(getBaseContext(),Sherbimi.class));
+    }
+
     private void checkPermission() {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
             Log.e(msg, "This Android version does not support fingerprint authentication");
