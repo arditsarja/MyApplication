@@ -1,18 +1,13 @@
 package com.mydomain.myapplication;
 
-import android.Manifest;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -33,9 +28,9 @@ public class MainActivity extends AppCompatActivity {
         editText = findViewById(R.id.editText);
     }
 
-    public void lexoPasswordin(View view){
-       String vlera =  editText.getText().toString();
-        Toast.makeText(this,vlera,Toast.LENGTH_LONG).show();
+    public void lexoPasswordin(View view) {
+        String vlera = editText.getText().toString();
+        Toast.makeText(this, vlera, Toast.LENGTH_LONG).show();
     }
 
     @Override
@@ -91,19 +86,28 @@ public class MainActivity extends AppCompatActivity {
 
     // broadcast a custom intent.
 
-    public void broadcastIntent(View view){
+    public void broadcastIntent(View view) {
         Intent intent = new Intent();
-        intent.setAction("com.mydomain.CUSTOM_INTENT"); sendBroadcast(intent);
+        intent.setAction("com.mydomain.CUSTOM_INTENT");
+        sendBroadcast(intent);
     }
 
 
-    public void ndiz(View view){
-        startService(new Intent(getBaseContext(),Sherbimi.class));
+    public void ndiz(View view) {
+        startService(new Intent(getBaseContext(), Sherbimi.class));
+    }
+
+    public void callFragmentActivity(View view) {
+        startActivity(new Intent(getBaseContext(), FragmentActivity.class));
     }
 
 
-    public void fik(View view){
-        stopService(new Intent(getBaseContext(),Sherbimi.class));
+    public void fik(View view) {
+        stopService(new Intent(getBaseContext(), Sherbimi.class));
+    }
+
+    public void callActivity(View view) {
+        startActivity(new Intent(getBaseContext(), ScrollingActivity.class));
     }
 
     private void checkPermission() {

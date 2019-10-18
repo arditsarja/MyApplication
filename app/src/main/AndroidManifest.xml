@@ -9,10 +9,27 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".FragmentActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.mydomain.myapplication.MainActivity" />
+        </activity>
+        <activity
+            android:name=".ScrollingActivity"
+            android:icon="@mipmap/logo_demo"
+            android:label="@string/title_activity_scrolling"
+            android:parentActivityName=".MainActivity"
+            android:roundIcon="@mipmap/logo_demo_round"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.mydomain.myapplication.MainActivity" />
+        </activity>
+
         <service
             android:name=".Sherbimi"
             android:enabled="true"
-            android:exported="true"></service>
+            android:exported="true" />
         <service
             android:name=".MyService"
             android:enabled="true"

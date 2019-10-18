@@ -23,7 +23,7 @@ public class ServiceHelper {
 
     public static void cancel(final Context context) {
         timer.cancel();
-        Log.d(context.getString(R.string.app_name),"Servisi perfundoi");
+        Log.d(context.getString(R.string.app_name), "Servisi perfundoi");
     }
 
 
