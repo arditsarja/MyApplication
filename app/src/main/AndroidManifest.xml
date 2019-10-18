@@ -9,6 +9,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name="com.mydomain.myapplication.NextIntend">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <action android:name="com.mydomain.myapplication.LAUNCH" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data
+                    android:scheme="http"/>
+            </intent-filter>
+            <meta-data android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.mydomain.myapplication.MainActivity"></meta-data>
+        </activity>
         <activity android:name=".FragmentActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -60,3 +72,5 @@
     </application>
 
 </manifest>
+    <!--android:host="www.example.com"-->
+    <!--android:path="/"-->
