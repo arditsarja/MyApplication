@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Il Mio Applicazione</string>
+    <string name="sayHello">Ciao</string>
+    <string name="lexPass">LeggiPassword</string>
+</resources>
