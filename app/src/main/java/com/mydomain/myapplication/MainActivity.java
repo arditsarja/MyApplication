@@ -100,6 +100,9 @@ public class MainActivity extends AppCompatActivity {
     public void callFragmentActivity(View view) {
         startActivity(new Intent(getBaseContext(), FragmentActivity.class));
     }
+    public void callIntendActivity(View view) {
+        startActivity(new Intent(getBaseContext(), IntendActivity.class));
+    }
 
 
     public void fik(View view) {

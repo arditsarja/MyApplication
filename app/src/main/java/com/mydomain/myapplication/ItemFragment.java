@@ -9,11 +9,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.mydomain.myapplication.dummy.DummyContent;
 import com.mydomain.myapplication.dummy.DummyContent.DummyItem;
-
-import java.util.List;
 
 /**
  * A fragment representing a list of Items.
@@ -27,7 +26,15 @@ public class ItemFragment extends Fragment {
     private static final String ARG_COLUMN_COUNT = "column-count";
     // TODO: Customize parameters
     private int mColumnCount = 1;
-    private OnListFragmentInteractionListener mListener;
+    private OnListFragmentInteractionListener mListener = new A() ;
+
+    class A implements OnListFragmentInteractionListener {
+
+        @Override
+        public void onListFragmentInteraction(DummyItem item) {
+            Toast.makeText(getActivity(), item.details, Toast.LENGTH_SHORT).show();
+        }
+    }
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
@@ -92,6 +99,7 @@ public class ItemFragment extends Fragment {
         super.onDetach();
         mListener = null;
     }
+
 
     /**
      * This interface must be implemented by activities that contain this

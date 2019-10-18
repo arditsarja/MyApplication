@@ -14,6 +14,11 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.mydomain.myapplication.MainActivity" />
         </activity>
+        <activity android:name=".IntendActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.mydomain.myapplication.MainActivity" />
+        </activity>
         <activity
             android:name=".ScrollingActivity"
             android:icon="@mipmap/logo_demo"
