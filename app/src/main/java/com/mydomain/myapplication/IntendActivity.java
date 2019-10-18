@@ -41,6 +41,10 @@ public class IntendActivity extends AppCompatActivity {
 
     }
 
+    public void mainActivity(View view) {
+        startActivity(new Intent(this, MainActivity.class));
+    }
+
     public void read(View view) {
         Intent read1 = new Intent();
         read1.setAction(android.content.Intent.ACTION_VIEW);

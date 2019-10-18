@@ -32,6 +32,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="228dp"
         android:layout_marginTop="24dp"
+        android:onClick="mainActivity"
         android:text="SHko ne main Act"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button8" />
