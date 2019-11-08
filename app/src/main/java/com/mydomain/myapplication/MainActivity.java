@@ -10,6 +10,9 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.mydomain.myapplication.LayoutsActivities.LayoutActivity;
+import com.mydomain.myapplication.UiControl.UiActivity;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,6 +20,18 @@ public class MainActivity extends AppCompatActivity {
     EditText editText;
 
     private String msg = "Aplikacioni : therritet funksioni ";
+
+    public void fr(View view) {
+        startActivity(new Intent(getBaseContext(), FrActivity.class));
+    }
+
+    public void lay(View view) {
+        startActivity(new Intent(getBaseContext(), LayoutActivity.class));
+    }
+
+    public void ui(View view) {
+        startActivity(new Intent(getBaseContext(), UiActivity.class));
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -100,6 +115,7 @@ public class MainActivity extends AppCompatActivity {
     public void callFragmentActivity(View view) {
         startActivity(new Intent(getBaseContext(), FragmentActivity.class));
     }
+
     public void callIntendActivity(View view) {
         startActivity(new Intent(getBaseContext(), IntendActivity.class));
     }

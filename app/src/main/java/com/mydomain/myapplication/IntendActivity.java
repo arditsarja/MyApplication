@@ -53,7 +53,6 @@ public class IntendActivity extends AppCompatActivity {
     }
 
     public void telefonoNumrin(View view) {
-        Intent read1 = new Intent();
         TextView textView = findViewById(R.id.phoneNumber);
 
         Intent i = new Intent(android.content.Intent.ACTION_VIEW,
