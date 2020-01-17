@@ -95,6 +95,7 @@ public class CallActivity extends AppCompatActivity {
         List<String> permissions = new ArrayList<>();
         permissions.add(Manifest.permission.CALL_PHONE);
         permissions.add(Manifest.permission.READ_CONTACTS);
+        permissions.add(Manifest.permission.SEND_SMS);
         permissions.add(Manifest.permission.WRITE_CONTACTS);
 
         for (String permission : permissions) {
