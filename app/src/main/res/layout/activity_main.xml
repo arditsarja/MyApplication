@@ -7,17 +7,17 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/button14"
+        android:id="@+id/button15"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="lay"
-        android:text="Layout"
+        android:onClick="callAct"
+        android:text="Call Act"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.157"
+        app:layout_constraintHorizontal_bias="0.83"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.674" />
+        app:layout_constraintVertical_bias="0.393" />
 
     <Button
         android:id="@+id/button13"
@@ -135,7 +135,7 @@
         android:layout_height="wrap_content"
         android:onClick="startService"
         android:text="@string/activateService"
-        android:textColor="@color/activateColor"
+        android:textColor="#00000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.064"
@@ -221,6 +221,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.755" />
+
+    <Button
+        android:id="@+id/button14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="lay"
+        android:text="Layout"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.116"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.634" />
 
 
 </android.support.constraint.ConstraintLayout>

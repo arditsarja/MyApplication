@@ -128,6 +128,9 @@ public class MainActivity extends AppCompatActivity {
     public void callActivity(View view) {
         startActivity(new Intent(getBaseContext(), ScrollingActivity.class));
     }
+    public void callAct(View view) {
+        startActivity(new Intent(getBaseContext(), CallActivity.class));
+    }
 
     private void checkPermission() {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
