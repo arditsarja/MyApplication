@@ -49,12 +49,16 @@ public class DragAndDropActivity extends AppCompatActivity {
 
                     case DragEvent.ACTION_DRAG_ENTERED:
                         Log.d(msg, "Action is DragEvent.ACTION_DRAG_ENTERED");
+                        layoutParams = (RelativeLayout.LayoutParams) v.getLayoutParams();
                         int x_cord = (int) event.getX();
                         int y_cord = (int) event.getY();
+                        layoutParams.leftMargin = x_cord;
+                        layoutParams.topMargin = y_cord;
                         break;
 
                     case DragEvent.ACTION_DRAG_EXITED:
                         Log.d(msg, "Action is DragEvent.ACTION_DRAG_EXITED");
+                        layoutParams = (RelativeLayout.LayoutParams) v.getLayoutParams();
                         x_cord = (int) event.getX();
                         y_cord = (int) event.getY();
                         layoutParams.leftMargin = x_cord;
@@ -64,18 +68,32 @@ public class DragAndDropActivity extends AppCompatActivity {
 
                     case DragEvent.ACTION_DRAG_LOCATION:
                         Log.d(msg, "Action is DragEvent.ACTION_DRAG_LOCATION");
+                        layoutParams = (RelativeLayout.LayoutParams) v.getLayoutParams();
                         x_cord = (int) event.getX();
                         y_cord = (int) event.getY();
+                        layoutParams.leftMargin = x_cord;
+                        layoutParams.topMargin = y_cord;
                         break;
 
                     case DragEvent.ACTION_DRAG_ENDED:
                         Log.d(msg, "Action is DragEvent.ACTION_DRAG_ENDED");
+                        layoutParams = (RelativeLayout.LayoutParams) v.getLayoutParams();
+                        x_cord = (int) event.getX();
+                        y_cord = (int) event.getY();
+                        layoutParams.leftMargin = x_cord;
+                        layoutParams.topMargin = y_cord;
 
                         // Do nothing
                         break;
 
                     case DragEvent.ACTION_DROP:
                         Log.d(msg, "ACTION_DROP event");
+                        layoutParams = (RelativeLayout.LayoutParams) v.getLayoutParams();
+                        x_cord = (int) event.getX();
+                        y_cord = (int) event.getY();
+                        layoutParams.leftMargin = x_cord;
+                        layoutParams.topMargin = y_cord;
+                        v.setLayoutParams(layoutParams);
 
                         // Do nothing
                         break;
