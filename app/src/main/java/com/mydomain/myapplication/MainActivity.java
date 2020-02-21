@@ -18,16 +18,18 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.mydomain.myapplication.LayoutsActivities.LayoutActivity;
 import com.mydomain.myapplication.UiControl.UiActivity;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
     EditText editText;
+    EditText tittull;
+    EditText tekst;
 
     private String msg = "Aplikacioni : therritet funksioni ";
 
@@ -51,6 +53,16 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         checkPermission();
         editText = findViewById(R.id.editText);
+        tittull = findViewById(R.id.tiltull);
+        tekst = findViewById(R.id.tekst);
+        Bundle bundle = getIntent().getExtras();
+        FirebaseMessaging.getInstance().subscribeToTopic("topiku");
+        if (bundle != null) {
+            String titulli = bundle.getString("titull");
+            String teksti = bundle.getString("tekst");
+            tittull.setText(titulli);
+            tekst.setText(teksti);
+        }
     }
 
     public void lexoPasswordin(View view) {
@@ -125,6 +137,7 @@ public class MainActivity extends AppCompatActivity {
     public void callFragmentActivity(View view) {
         startActivity(new Intent(getBaseContext(), FragmentActivity.class));
     }
+
     public void callMarioActivity(View view) {
         startActivity(new Intent(getBaseContext(), MarioActivity.class));
     }
@@ -132,6 +145,7 @@ public class MainActivity extends AppCompatActivity {
     public void callIntendActivity(View view) {
         startActivity(new Intent(getBaseContext(), IntendActivity.class));
     }
+
     public void dragActivity(View view) {
         startActivity(new Intent(getBaseContext(), DragAndDropActivity.class));
     }
@@ -144,11 +158,12 @@ public class MainActivity extends AppCompatActivity {
     public void callActivity(View view) {
         startActivity(new Intent(getBaseContext(), ScrollingActivity.class));
     }
+
     public void callAct(View view) {
         startActivity(new Intent(getBaseContext(), CallActivity.class));
     }
 
-    public void showNotification(View view)  {
+    public void showNotification(View view) {
         NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
         String message = "Mesazh";
         String title = "Titull";

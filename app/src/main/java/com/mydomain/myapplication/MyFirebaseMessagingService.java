@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.os.Build;
+import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 
@@ -42,18 +43,23 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         }
 
         try {
-            showNotification(remoteMessage.getNotification().getTitle(),remoteMessage.getNotification().getBody());
+            showNotification(remoteMessage.getData());
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    private void showNotification(String title,String message) throws Exception {
+    private void showNotification(Map<String, String> data) throws Exception {
         NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        String message = data.get("message") != null ? data.get("message") : "Message";
+        String title = data.get("title") != null ? data.get("title") : "Title";
 
-
+        Bundle bundle = new Bundle();
         // Create an Intent for the activity you want to start
         Intent resultIntent = new Intent(this, MainActivity.class);
+        bundle.putString("tekst", message);
+        bundle.putString("titull", title);
+        resultIntent.putExtras(bundle);
         // Create the TaskStackBuilder and add the intent, which inflates the back stack
         TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
         stackBuilder.addNextIntentWithParentStack(resultIntent);
@@ -67,7 +73,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
             NotificationChannel notificationChannel = new NotificationChannel(notification_channel_id, "Leksion", NotificationManager.IMPORTANCE_HIGH);
             notificationChannel.setDescription("TestNotification");
             notificationChannel.enableLights(true);
-            notificationChannel.setLightColor(Color.RED);
+            notificationChannel.setLightColor(Color.GREEN);
             notificationChannel.enableVibration(true);
             notificationManager.createNotificationChannel(notificationChannel);
 
@@ -79,6 +85,9 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         notificationBuilder.setContentText(message);
         notificationBuilder.setContentInfo("Info");
         notificationBuilder.setWhen(System.currentTimeMillis());
+        notificationBuilder.setSmallIcon(R.drawable.image);
+        notificationBuilder.setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.image));
+        notificationBuilder.setBadgeIconType(R.drawable.image);
         notificationBuilder.setContentIntent(resultPendingIntent);
         notificationManager.notify(new Random().nextInt(), notificationBuilder.build());
 
