@@ -53,12 +53,14 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
         String message = data.get("message") != null ? data.get("message") : "Message";
         String title = data.get("title") != null ? data.get("title") : "Title";
+        String bigTxt = data.get("bigtex") != null ? data.get("bigtex") : "Big Text";
 
         Bundle bundle = new Bundle();
         // Create an Intent for the activity you want to start
         Intent resultIntent = new Intent(this, MainActivity.class);
         bundle.putString("tekst", message);
         bundle.putString("titull", title);
+        bundle.putString("bigtex", bigTxt);
         resultIntent.putExtras(bundle);
         // Create the TaskStackBuilder and add the intent, which inflates the back stack
         TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);

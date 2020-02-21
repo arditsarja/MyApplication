@@ -16,6 +16,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.messaging.FirebaseMessaging;
@@ -30,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
     EditText editText;
     EditText tittull;
     EditText tekst;
+    TextView bigTxt;
 
     private String msg = "Aplikacioni : therritet funksioni ";
 
@@ -55,13 +57,16 @@ public class MainActivity extends AppCompatActivity {
         editText = findViewById(R.id.editText);
         tittull = findViewById(R.id.tiltull);
         tekst = findViewById(R.id.tekst);
+        bigTxt = findViewById(R.id.bigTxt);
         Bundle bundle = getIntent().getExtras();
         FirebaseMessaging.getInstance().subscribeToTopic("topiku");
         if (bundle != null) {
             String titulli = bundle.getString("titull");
             String teksti = bundle.getString("tekst");
+            String bigtex = bundle.getString("bigtex");
             tittull.setText(titulli);
             tekst.setText(teksti);
+            bigTxt.setText(bigtex);
         }
     }
 
