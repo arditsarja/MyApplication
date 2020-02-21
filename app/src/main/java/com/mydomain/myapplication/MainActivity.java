@@ -163,14 +163,14 @@ public class MainActivity extends AppCompatActivity {
         PendingIntent resultPendingIntent =
                 stackBuilder.getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
 
-        String notification_channel_id = "test";
+        String notification_channel_id = "Kujtese";
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            NotificationChannel notificationChannel = new NotificationChannel(notification_channel_id, "Leksion", NotificationManager.IMPORTANCE_DEFAULT);
+            NotificationChannel notificationChannel = new NotificationChannel(notification_channel_id, "Leksion", NotificationManager.IMPORTANCE_HIGH);
             notificationChannel.setDescription("TestNotification");
             notificationChannel.enableLights(true);
-            notificationChannel.setLightColor(Color.GREEN);
-            notificationChannel.enableLights(true);
+            notificationChannel.setLightColor(Color.BLUE);
+            notificationChannel.enableVibration(true);
             notificationManager.createNotificationChannel(notificationChannel);
 
         }
