@@ -169,6 +169,9 @@ public class MainActivity extends AppCompatActivity {
     public void callMarioActivity(View view) {
         startActivity(new Intent(getBaseContext(), MarioActivity.class));
     }
+    public void animateAct(View view) {
+        startActivity(new Intent(getBaseContext(), AnimationActivity.class));
+    }
 
     public void callIntendActivity(View view) {
         startActivity(new Intent(getBaseContext(), IntendActivity.class));

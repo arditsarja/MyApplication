@@ -98,6 +98,14 @@
 
 
                 <Button
+                    android:id="@+id/anim"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="animateAct"
+                    android:text="Animate"
+                     />
+
+                <Button
                     android:id="@+id/actBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
