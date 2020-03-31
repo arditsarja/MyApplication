@@ -98,6 +98,13 @@
 
 
                 <Button
+                    android:id="@+id/record"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="recordAct"
+                    android:text="Record Audio"
+                     />
+                <Button
                     android:id="@+id/anim"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -111,7 +118,7 @@
                     android:layout_height="wrap_content"
                     android:onClick="startService"
                     android:text="@string/activateService"
-                    android:textColor="#00000000" />
+                    android:textColor="@color/activateColor" />
 
                 <Button
                     android:id="@+id/deactBtn"
