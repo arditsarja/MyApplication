@@ -93,6 +93,22 @@ public class MainActivity extends AppCompatActivity {
         alertDialog.show();
     }
 
+    public void openListDialog(View view) {
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+        alertDialogBuilder.setTitle("Zgjidhni ?");
+
+        final String[] makina = {"Mercedes-Benz", "BMW", "Ferrari"};
+        alertDialogBuilder.setItems(makina, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                Toast.makeText(MainActivity.this, "Ju zgjodhet: " + makina[which], Toast.LENGTH_LONG).show();
+            }
+        });
+
+
+        AlertDialog alertDialog = alertDialogBuilder.create();
+        alertDialog.show();
+    }
+
     public void lexoPasswordin(View view) {
         String vlera = editText.getText().toString();
         Toast.makeText(this, vlera, Toast.LENGTH_LONG).show();
@@ -169,9 +185,11 @@ public class MainActivity extends AppCompatActivity {
     public void callMarioActivity(View view) {
         startActivity(new Intent(getBaseContext(), MarioActivity.class));
     }
+
     public void animateAct(View view) {
         startActivity(new Intent(getBaseContext(), AnimationActivity.class));
     }
+
     public void recordAct(View view) {
         startActivity(new Intent(getBaseContext(), RecorderActivity.class));
     }
