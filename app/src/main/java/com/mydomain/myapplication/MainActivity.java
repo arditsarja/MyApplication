@@ -193,6 +193,9 @@ public class MainActivity extends AppCompatActivity {
     public void recordAct(View view) {
         startActivity(new Intent(getBaseContext(), RecorderActivity.class));
     }
+    public void camAct(View view) {
+        startActivity(new Intent(getBaseContext(), CameraActivity.class));
+    }
 
     public void callIntendActivity(View view) {
         startActivity(new Intent(getBaseContext(), IntendActivity.class));
